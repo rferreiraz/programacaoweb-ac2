@@ -1,0 +1,19 @@
+<main class="painel largo">
+  <h1>Lista de pedidos</h1>
+  @for (pedido of service.listar(); track pedido.id) {
+    <section class="pedido" [class.cancelado]="pedido.status === 'Cancelado'" [class.entregue-texto]="pedido.status === 'Entregue'">
+      <p><strong>Cliente:</strong> {{ pedido.cliente }}</p>
+      <p><strong>Lanche:</strong> {{ pedido.lanche }}</p>
+      <p><strong>Quantidade:</strong> {{ pedido.quantidade }}</p>
+      <p><strong>Status:</strong> <span class="status">{{ pedido.status }}</span></p>
+      <div class="botoes">
+        <button class="aceitar" (click)="service.aceitar(pedido.id)">Aceitar</button>
+        <button class="preparo" (click)="service.pedidoEmPreparo(pedido.id)">Em Preparo</button>
+        <button class="rota" (click)="service.pedidoSaiuParaEntrega(pedido.id)">Em Rota</button>
+        <button class="entregue" (click)="service.marcarEntregue(pedido.id)">Entregue</button>
+        <button class="cancelar" (click)="service.remover(pedido.id)">Cancelar Pedido</button>
+      </div>
+    </section>
+  } @empty { <p>Nenhum pedido cadastrado ainda.</p> }
+  <a routerLink="/">← Voltar ao cadastro</a>
+</main>
