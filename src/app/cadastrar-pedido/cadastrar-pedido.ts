@@ -11,7 +11,7 @@ export class CadastrarPedido {
   constructor(public service: PedidosService) {}
   cadastrar(): void {
     if (!this.cliente.trim() || !this.lanche.trim() || this.quantidade < 1) {
-      this.mensagem = 'Preencha todos os campos corretamente.';
+      this.mensagem = 'preencha todos os campos corretamente';
       return;
     }
     this.service.adicionar({ id: Date.now(), cliente: this.cliente.trim(), lanche: this.lanche.trim(), quantidade: this.quantidade, status: 'Pendente' });

@@ -2,8 +2,8 @@
   <h1>Lanchonete AC2</h1>
   <h2>Cadastrar pedido</h2>
   <form (ngSubmit)="cadastrar()">
-    <label>Nome do cliente<input name="cliente" [(ngModel)]="cliente" placeholder="Ex.: Ana" required></label>
-    <label>Lanche<input name="lanche" [(ngModel)]="lanche" placeholder="Ex.: X-Burger" required></label>
+    <label>Nome do cliente<input name="cliente" [(ngModel)]="cliente" placeholder="" required></label>
+    <label>Lanche<input name="lanche" [(ngModel)]="lanche" placeholder="" required></label>
     <label>Quantidade<input name="quantidade" type="number" min="1" [(ngModel)]="quantidade" required></label>
     <button type="submit" class="principal">Cadastrar</button>
   </form>
